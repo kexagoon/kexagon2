@@ -1,9 +1,30 @@
 body {
     background-color: #f9f9f9;
     font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 50px;
 }
 
 h1 {
     color: #333;
-    text-align: center;
+}
+
+#counter {
+    font-size: 48px;
+    margin: 20px 0;
+    color: #007bff;
+}
+
+#increment-btn {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#increment-btn:hover {
+    background-color: #0056b3;
 }
