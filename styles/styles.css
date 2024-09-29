@@ -4,55 +4,47 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: #f9f9f9;
+    background-color: #808080; /* Серый фон */
     font-family: Arial, sans-serif;
     margin: 0;
     overflow: hidden;
 }
 
 h1 {
-    color: #333;
+    color: #fff;
 }
 
 #button-container {
     margin-top: 20px;
 }
 
-.hexagon-button {
-    width: 300px; /* Размер кнопки */
-    height: 300px;
-    background-color: #4CAF50; /* Цвет кнопки */
-    clip-path: polygon(
-        50% 0%, 
-        90% 25%, 
-        90% 75%, 
-        50% 100%, 
-        10% 75%, 
-        10% 25%
-    ); /* Формирование шестиугольника */
-    cursor: pointer;
+.diamond-button {
+    font-size: 200px; /* Сделаем смайлик крупным */
+    width: 100vw; /* На весь экран по ширине */
+    height: 100vh; /* На весь экран по высоте */
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 30px; /* Размер текста внутри кнопки */
-    color: white;
+    background-color: transparent;
     border: none;
     outline: none;
-}
-
-.hexagon-button:active {
-    background-color: #45a049; /* Цвет кнопки при нажатии */
+    cursor: pointer;
 }
 
 .number {
     position: absolute;
-    font-size: 20px;
+    font-size: 40px;
     color: red;
-    animation: fadeOut 1s forwards;
+    animation: moveUp 1s forwards;
 }
 
-@keyframes fadeOut {
-    to {
+@keyframes moveUp {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-50px); /* Движение вверх */
         opacity: 0;
     }
 }
