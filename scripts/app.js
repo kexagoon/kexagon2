@@ -1,6 +1,6 @@
 let count = 0; // Счетчик нажатий
 const counterDisplay = document.getElementById('counter');
-const button = document.getElementById('smiley-button');
+const button = document.getElementById('hexagon-button'); // Изменено на hexagon-button
 
 // URL и ключ для JSONBin
 const JSONBIN_URL = 'https://api.jsonbin.io/v3/b/66f887f0e41b4d34e439bc22'; // Замените YOUR_BIN_ID на ID вашего бина
