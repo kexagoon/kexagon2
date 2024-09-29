@@ -14,12 +14,21 @@ h1 {
     color: #fff;
 }
 
+#counter-container {
+    position: absolute;
+    top: 10%; /* Позиция заголовка над кнопкой */
+    text-align: center;
+}
+
 #button-container {
-    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
 }
 
 .diamond-button {
-    font-size: 200px; /* Сделаем смайлик крупным */
+    font-size: 200px; /* Крупный размер смайлика */
     width: 100vw; /* На весь экран по ширине */
     height: 100vh; /* На весь экран по высоте */
     display: flex;
