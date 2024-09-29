@@ -73,7 +73,7 @@ async function init() {
 
             // Создаем элемент для отображения "1"
             const number = document.createElement('div');
-            number.textContent = '1';
+            number.textContent = '+1';
             number.className = 'number';
             number.style.left = `${x}px`;
             number.style.top = `${y}px`;
