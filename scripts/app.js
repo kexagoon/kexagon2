@@ -1,12 +1,12 @@
-let count = 0; // Начальное значение счетчика
+let count = 0; // Счетчик нажатий
 const counterDisplay = document.getElementById('counter');
 const button = document.getElementById('smiley-button');
 
 // URL и ключ для JSONBin
-const JSONBIN_URL = 'https://api.jsonbin.io/v3/bins/66f887f0e41b4d34e439bc22'; // Замените YOUR_BIN_ID на ID вашего бина
+const JSONBIN_URL = 'https://api.jsonbin.io/v3/b/66f887f0e41b4d34e439bc22'; // Замените YOUR_BIN_ID на ID вашего бина
 const JSONBIN_KEY = '$2a$10$S/7mcjxN0Wz9jGLSS85aL.pke56cYTH/NyMUOu4qezrdtgXNtK0Ve'; // Замените YOUR_API_KEY на ваш ключ API
 
-// Функция для загрузки количества нажатий из JSONBin
+// Функция для загрузки общего количества нажатий из JSONBin
 async function loadCount() {
     try {
         const response = await fetch(JSONBIN_URL, {
@@ -17,30 +17,30 @@ async function loadCount() {
             },
         });
         const data = await response.json();
-        count = data.record.clickCount || 0; // Получаем значение из записи
+        count = data.record.clickCount || 0; // Получаем значение счетчика из записи
         counterDisplay.textContent = count; // Отображаем начальное значение
     } catch (error) {
         console.error('Ошибка при загрузке данных:', error);
     }
 }
 
-// Функция для сохранения количества нажатий в JSONBin
+// Функция для сохранения общего количества нажатий в JSONBin
 async function saveCount() {
     try {
         await fetch(JSONBIN_URL, {
-            method: 'PUT',
+            method: 'PUT', // Метод PUT обновляет данные
             headers: {
                 'Content-Type': 'application/json',
                 'X-Master-Key': JSONBIN_KEY,
             },
-            body: JSON.stringify({ clickCount: count }), // Сохраняем новое значение
+            body: JSON.stringify({ clickCount: count }), // Обновляем общее количество нажатий
         });
     } catch (error) {
         console.error('Ошибка при сохранении данных:', error);
     }
 }
 
-// Загружаем количество нажатий при старте приложения
+// Загружаем общее количество нажатий при старте приложения
 loadCount();
 
 // Обработчик события нажатия на кнопку
