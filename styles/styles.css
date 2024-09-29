@@ -1,30 +1,38 @@
 body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
     background-color: #f9f9f9;
     font-family: Arial, sans-serif;
-    text-align: center;
-    margin-top: 50px;
 }
 
 h1 {
     color: #333;
 }
 
-#counter {
-    font-size: 48px;
-    margin: 20px 0;
-    color: #007bff;
+#button-container {
+    margin-top: 20px;
 }
 
-#increment-btn {
-    padding: 10px 20px;
-    font-size: 18px;
-    background-color: #007bff;
-    color: white;
+.smiley-button {
+    font-size: 50px;
     border: none;
-    border-radius: 5px;
+    background: transparent;
     cursor: pointer;
+    outline: none;
 }
 
-#increment-btn:hover {
-    background-color: #0056b3;
+.number {
+    position: absolute;
+    font-size: 20px;
+    color: red;
+    animation: fadeOut 1s forwards;
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+    }
 }
