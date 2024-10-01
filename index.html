@@ -1,18 +1,33 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Счетчик нажатий</title>
-    <link rel="stylesheet" href="styles/styles.css">
+    <title>Original Battle Game</title>
+    <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
-    <div id="counter-container">
-        <h1>Собранно KexaCoin💎: <span id="counter">0</span></h1>
+    <div id="menu">
+        <h1>Choose Your Fighter</h1>
+        <div id="characters">
+            <div class="character" id="fighter1">
+                <img src="assets/images/fighter1.png" alt="Fighter 1">
+                <span>Fighter 1</span>
+            </div>
+            <div class="character" id="fighter2">
+                <img src="assets/images/fighter2.png" alt="Fighter 2">
+                <span>Fighter 2</span>
+            </div>
+        </div>
+        <button id="startGame">Start Battle</button>
     </div>
-    <div id="button-container">
-        <button id="diamond-button" class="diamond-button">💎</button>
+    
+    <div id="gameContainer" style="display:none;">
+        <canvas id="gameCanvas"></canvas>
     </div>
-    <script src="scripts/app.js"></script>
+    
+    <script src="scripts/characters.js"></script>
+    <script src="scripts/animations.js"></script>
+    <script src="scripts/game.js"></script>
 </body>
 </html>
