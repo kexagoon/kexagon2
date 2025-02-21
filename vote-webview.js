@@ -26,33 +26,49 @@
         };
         document.head.appendChild(script2);
 
-        // Добавляем кнопку перевода
+        // Добавляем стили для кнопки
         const style = document.createElement("style");
         style.textContent = `
             .vot-button {
                 position: fixed;
                 bottom: 20px;
                 right: 20px;
-                background-color: #2196F3;
+                background-color: #ff5722;
                 color: white;
-                padding: 10px;
+                padding: 12px 20px;
                 border: none;
                 border-radius: 5px;
                 cursor: pointer;
                 font-size: 16px;
+                font-weight: bold;
+                box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+                z-index: 9999; /* Делаем кнопку поверх всех элементов */
+                transition: background-color 0.3s, transform 0.2s;
+            }
+            
+            .vot-button:hover {
+                background-color: #e64a19;
+                transform: scale(1.05);
+            }
+
+            .vot-button:active {
+                transform: scale(0.95);
             }
         `;
         document.head.appendChild(style);
 
+        // Создаем кнопку перевода
         const button = document.createElement("button");
         button.classList.add("vot-button");
         button.textContent = "🔊 Перевести видео";
         button.onclick = function() {
-            alert("Функция перевода включена! (но пока не реализована)");
+            alert("✅ Перевод включен! (но пока не реализован)");
         };
+
+        // Добавляем кнопку в конец body
         document.body.appendChild(button);
 
-        console.log("✅ Кнопка перевода добавлена!");
+        console.log("✅ Кнопка перевода добавлена и видна!");
     }
 
     // Запускаем после полной загрузки страницы
