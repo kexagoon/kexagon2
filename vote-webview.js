@@ -1,27 +1,32 @@
 (() => {
-    console.log("VOT Script загружен в WebView");
+    console.log("✅ VOT Script загружен в WebView");
 
-    // Загружаем protobuf.js
-    const script1 = document.createElement("script");
-    script1.src = "https://cdn.jsdelivr.net/npm/protobufjs/dist/light/protobuf.min.js";
-    script1.onload = function() {
-        console.log("protobuf.js загружен");
-    };
-    document.head.appendChild(script1);
+    function startScript() {
+        if (document.readyState !== "complete") {
+            console.log("⏳ Ожидание полной загрузки страницы...");
+            setTimeout(startScript, 1000); // Повторяем проверку через 1 секунду
+            return;
+        }
 
-    // Загружаем hls.js
-    const script2 = document.createElement("script");
-    script2.src = "https://cdn.jsdelivr.net/npm/hls.js/dist/hls.light.min.js";
-    script2.onload = function() {
-        console.log("hls.js загружен");
-    };
-    document.head.appendChild(script2);
+        console.log("✅ Страница загружена, выполняем скрипт!");
 
-    // Проверяем, что страница загружена
-    document.addEventListener("DOMContentLoaded", () => {
-        console.log("Страница загружена, выполняем скрипт");
+        // Добавляем protobuf.js
+        const script1 = document.createElement("script");
+        script1.src = "https://cdn.jsdelivr.net/npm/protobufjs/dist/light/protobuf.min.js";
+        script1.onload = function() {
+            console.log("✅ protobuf.js загружен!");
+        };
+        document.head.appendChild(script1);
 
-        // Добавляем стили
+        // Добавляем hls.js
+        const script2 = document.createElement("script");
+        script2.src = "https://cdn.jsdelivr.net/npm/hls.js/dist/hls.light.min.js";
+        script2.onload = function() {
+            console.log("✅ hls.js загружен!");
+        };
+        document.head.appendChild(script2);
+
+        // Добавляем кнопку перевода
         const style = document.createElement("style");
         style.textContent = `
             .vot-button {
@@ -34,17 +39,22 @@
                 border: none;
                 border-radius: 5px;
                 cursor: pointer;
+                font-size: 16px;
             }
         `;
         document.head.appendChild(style);
 
-        // Создаем кнопку для включения перевода
         const button = document.createElement("button");
         button.classList.add("vot-button");
-        button.textContent = "Перевести видео";
+        button.textContent = "🔊 Перевести видео";
         button.onclick = function() {
-            alert("Функция перевода ещё не реализована!");
+            alert("Функция перевода включена! (но пока не реализована)");
         };
         document.body.appendChild(button);
-    });
+
+        console.log("✅ Кнопка перевода добавлена!");
+    }
+
+    // Запускаем после полной загрузки страницы
+    window.onload = startScript;
 })();
